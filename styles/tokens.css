@@ -1,0 +1,119 @@
+/* ─────────────────────────────────────────────────────────────
+   Lydie Portfolio — Design tokens
+   Dark-first. B&W lisible, accents rouge (signal) + bleu (preuve).
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Neutres */
+  --c-bg-950: #070707;
+  --c-bg-900: #0B0B0C;
+  --c-surface-850: #101113;
+  --c-surface-800: #15171A;
+  --c-border-700: #24262B;
+  --c-border-600: #2E3137;
+  --c-text-100: #F2F2F2;
+  --c-text-200: #D7D7D7;
+  --c-text-400: #A6A6A6;
+  --c-text-600: #6F6F6F;
+
+  /* Accents */
+  --c-red-500: #E1062C;
+  --c-red-600: #C2052A;
+  --c-blue-400: #7AA7FF;
+  --c-blue-500: #4C7DFF;
+
+  /* États */
+  --c-focus: var(--c-blue-400);
+  --c-danger: var(--c-red-500);
+  --c-link: var(--c-text-100);
+  --c-link-hover: var(--c-blue-400);
+
+  /* Ombres / glow */
+  --shadow-1: 0 8px 24px rgba(0,0,0,.35);
+  --shadow-2: 0 22px 60px rgba(0,0,0,.55);
+  --glow-blue: 0 0 0 3px rgba(122,167,255,.18);
+  --glow-red: 0 0 0 3px rgba(225,6,44,.14);
+
+  /* Typo */
+  --font-display: "Fraunces", "Times New Roman", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Grille */
+  --container: 1120px;
+  --container-gallery: 1320px;
+
+  /* Spacing — baseline 8 */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  --s9: 96px; --s10: 128px;
+
+  /* Radius */
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-pill: 999px;
+
+  /* Grain (override-able par Tweaks) */
+  --grain-opacity: .08;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.2,.7,.2,1);
+  --t-fast: 160ms;
+  --t-med: 220ms;
+  --t-slow: 420ms;
+}
+
+/* Reset léger */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { background: var(--c-bg-950); color: var(--c-text-100); }
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--c-bg-950);
+  color: var(--c-text-100);
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+
+/* Typo de base */
+h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: -.01em; }
+.display { font-family: var(--font-display); font-weight: 350; letter-spacing: -.02em; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-text-400);
+}
+.mono { font-family: var(--font-mono); }
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--c-blue-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Sélection */
+::selection { background: var(--c-red-500); color: #fff; }
+
+/* Grain global, en overlay non-bloquant */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: var(--grain-url);
+  background-size: 220px 220px;
+  mix-blend-mode: overlay;
+}
+
+/* Hide native cursor when custom cursor is on (desktop only) */
+.custom-cursor-on, .custom-cursor-on * { cursor: none !important; }
+@media (pointer: coarse) {
+  .custom-cursor-on, .custom-cursor-on * { cursor: auto !important; }
+}
