@@ -15,6 +15,10 @@ function ArtworkPage({ t, navigate, lang, workId }) {
   const nextWork = works[(idx + 1) % works.length];
   const nextWorkSec = sections.find((s) => s.id === nextWork.section);
 
+  // Frame adopts the image's real ratio so it shows uncropped
+  // (CSS 4/5 stays as the loading fallback).
+  const naturalRatio = useNaturalRatio(work.img);
+
   return (
     <div className="artwork-wrap page-enter">
       <nav className="artwork-breadcrumb">
@@ -27,10 +31,12 @@ function ArtworkPage({ t, navigate, lang, workId }) {
 
       <div className="artwork-grid">
         <figure className="artwork-media-fig">
-          <div className="artwork-media grain" data-cur="art">
+          <div className="artwork-media grain" data-cur="art"
+               style={naturalRatio ? { aspectRatio: naturalRatio } : null}>
             <image-slot
               id={`detail-${work.id}`}
               shape="rect"
+              src={work.img || undefined}
               placeholder={`${title} · ${sec.title}`}
               style={{ width: "100%", height: "100%" }}
             ></image-slot>
@@ -101,6 +107,7 @@ function ArtworkPage({ t, navigate, lang, workId }) {
               <image-slot
                 id={`rel-${w.id}`}
                 shape="rect"
+                src={w.img || undefined}
                 placeholder={`${sec.title} · ${w.year}`}
                 style={{ width: "100%", height: "100%" }}
               ></image-slot>

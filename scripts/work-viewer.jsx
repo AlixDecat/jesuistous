@@ -82,11 +82,12 @@ function WorkViewer({ t, lang }) {
 
   return (
     <div className={"viewer" + (dark ? " is-dark" : "") + (open ? " is-open" : "")} role="dialog" aria-modal="true">
-      {/* Stage */}
+      {/* Stage — key re-mounts the block per work so the entrance animation
+          replays on prev/next; fit="contain" shows the artwork uncropped. */}
       <div className="vw-stage">
-        <div className="vw-image">
+        <div className="vw-image" key={work.id}>
           {/* Drop-zone for user image (persisted via image-slot) */}
-          <image-slot id={`viewer-${work.id}`} shape="rect" src={work.img || undefined} placeholder={(work.title[lang] || work.title.fr)}></image-slot>
+          <image-slot id={`viewer-${work.id}`} shape="rect" fit="contain" src={work.img || undefined} placeholder={(work.title[lang] || work.title.fr)}></image-slot>
         </div>
       </div>
 

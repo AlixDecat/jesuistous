@@ -152,7 +152,7 @@ function GalleryPage({ t, navigate, lang, query }) {
 function SectionBlock({ sec, idx, items, lang, onOpen, solo, navigate, jumpLabel }) {
   return (
     <section className={"section-block" + (solo ? " is-solo" : "")} id={`section-${sec.id}`}>
-      <header className="section-header fade-up">
+      <header className="section-header" data-reveal="">
         <div className="sh-n mono">{sec.n}</div>
         <h2 className="sh-t">{sec.title}</h2>
         <div className="sh-sub">{sec.subtitle}</div>
@@ -166,7 +166,7 @@ function SectionBlock({ sec, idx, items, lang, onOpen, solo, navigate, jumpLabel
 
       <div className="masonry">
         {items.map((w, i) => (
-          <div key={w.id} className="fade-up" style={{ animationDelay: `${Math.min(i * 35, 400)}ms` }}>
+          <div key={w.id} data-reveal="" style={{ "--rv-delay": `${Math.min(i * 70, 420)}ms` }}>
             <ArtworkCard
               work={w}
               onOpen={onOpen}

@@ -123,14 +123,39 @@ function Cartel({ title, ref_, year, sectionLabel, outil, note }) {
   );
 }
 
+// ── useNaturalRatio ──────────────────────────────────────────────
+// Measures an image's intrinsic aspect ratio so its frame can adopt it
+// and show the picture uncropped. Returns null until known (or no src).
+function useNaturalRatio(src) {
+  const [ratio, setRatio] = useState(null);
+  useEffect(() => {
+    setRatio(null);
+    if (!src) return;
+    let alive = true;
+    const im = new Image();
+    im.onload = () => {
+      if (alive && im.naturalWidth && im.naturalHeight) {
+        setRatio(im.naturalWidth + " / " + im.naturalHeight);
+      }
+    };
+    im.src = src;
+    return () => { alive = false; };
+  }, [src]);
+  return ratio;
+}
+
 // ── ArtworkCard ──────────────────────────────────────────────────
 function ArtworkCard({ work, onOpen, lang, sectionLabel }) {
-  const ratioStyle = {
-    tall:    { aspectRatio: "4 / 5" },
-    "tall-x":{ aspectRatio: "3 / 4" },
-    square:  { aspectRatio: "1 / 1" },
-    wide:    { aspectRatio: "16 / 10" },
-  }[work.ratio] || { aspectRatio: "4 / 5" };
+  // The image's real ratio wins so it displays in full; the declared
+  // ratio only serves as the frame while the image loads (or is absent).
+  const naturalRatio = useNaturalRatio(work.img);
+  const fallbackRatio = {
+    tall:    "4 / 5",
+    "tall-x":"3 / 4",
+    square:  "1 / 1",
+    wide:    "16 / 10",
+  }[work.ratio] || "4 / 5";
+  const ratioStyle = { aspectRatio: naturalRatio || fallbackRatio };
 
   return (
     <figure className="artcard m-item" data-cur="art" onClick={() => onOpen(work.id)}>
@@ -355,4 +380,5 @@ function NotesDrawer({ open, onClose, t, navigate, route }) {
 Object.assign(window, {
   CustomCursor, Header, Footer, ProofBox, ArtworkCard, Tag,
   Cartel, BackToPlan, NextRoom, VisitProgress, NotesDrawer,
+  useNaturalRatio,
 });
