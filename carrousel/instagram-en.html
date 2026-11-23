@@ -91,16 +91,21 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
   box-shadow: 0 6px 18px rgba(0,0,0,.35); filter: url(#f-tape); }
 .rule { display: block; width: 72px; height: 4px; background: var(--pink); margin-bottom: 26px; }
 
-/* 01 · I don't like AI + leurs images */
-.s-hook .h { top: 196px; left: 104px; width: 500px; font-size: 108px; line-height: .95; letter-spacing: -.02em; }
-.s-hook .h .hollow { -webkit-text-stroke-width: 3px; }
-.s-hook .tools { top: 432px; left: 104px; width: 510px; font-size: 40px; font-weight: 600; line-height: 1.22; }
-.s-hook .sig { top: 598px; left: 104px; display: grid; gap: 6px; font-size: 26px; font-weight: 600; }
-.s-hook .sig .swipe { color: var(--pink); }
-.s-hook .chatgpt { top: 0; right: 0; height: 690px; width: auto; }
-.s-hook .gemini { left: 0; bottom: 0; width: 1080px; height: auto; }
-.s-hook .t-gemini { top: 700px; left: 104px; }
-.s-hook .t-chatgpt { top: 700px; right: 104px; }
+/* 01 · Le hook seul */
+.s-tease .h { top: 300px; left: 104px; width: 900px; font-size: 176px; line-height: .92; letter-spacing: -.025em; }
+.s-tease .h .hollow { display: block; font-size: 300px; line-height: .9; -webkit-text-stroke-width: 4px; }
+.s-tease .sig { left: 104px; top: 1236px; font-size: 26px; font-weight: 600; }
+.band { top: 584px; left: 860px; width: 330px; height: 96px; transform: rotate(-3deg); z-index: 7 !important; }
+.s-arg .band { left: -220px; }
+.band .sheet { position: absolute; inset: 0; background: var(--pink); filter: url(#f-torn); }
+.band span { position: relative; display: flex; align-items: center; height: 100%; padding-left: 30px; font-size: 36px; font-weight: 700; color: var(--ink); }
+
+/* 02 · Pourquoi + leurs images */
+.s-arg .h { top: 196px; left: 104px; width: 540px; font-size: 70px; line-height: 1; }
+.s-arg .chatgpt { top: 0; right: 0; height: 640px; width: auto; }
+.s-arg .gemini { left: 0; bottom: 0; width: 1080px; height: auto; }
+.s-arg .t-gemini { top: 690px; left: 104px; }
+.s-arg .t-chatgpt { top: 660px; right: 104px; }
 
 /* 02 · So I built my own + mon image */
 .s-mine .h { top: 196px; left: 104px; width: 900px; font-size: 118px; line-height: .95; letter-spacing: -.02em; color: var(--pink); }
@@ -199,39 +204,47 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 
 <main class="wrap">
   <header class="page-head">
-    <p class="eyebrow">Carrousel Instagram · anglais · 7 slides · 1080 × 1350</p>
+    <p class="eyebrow">Carrousel Instagram · anglais · 8 slides · 1080 × 1350</p>
     <h1>I don’t like <span>AI</span></h1>
-    <p>Slide 1 : leurs images (Gemini, ChatGPT). Slide 2 : la tienne (Stable Bibi). Les trois sont montrées entières. Le prompt a sa propre slide, et l’image de la slide 6 continue sur la slide 7.</p>
+    <p>Slide 1 : « I don’t like AI » seul, pour donner envie de swiper. Slide 2 : pourquoi, avec leurs images (Gemini, ChatGPT). Slide 3 : la tienne (Stable Bibi). Le prompt a sa propre slide, et l’image de la slide 7 continue sur la slide 8.</p>
   </header>
 
   <div class="deck">
 
-    <!-- 01 · I don't like AI + Gemini, ChatGPT -->
+    <!-- 01 · Le hook seul -->
     <figure class="item"><div class="frame">
-      <section class="slide s-hook" aria-label="Slide 1: I don’t like AI" data-nocount>
-        <h1 class="disp h">I don’t like <span class="hollow">AI.</span></h1>
-        <p class="tools">It makes everything<br>look the same.<br>It erases difference.</p>
-        <p class="sig"><span>Lydie · queen’s pact</span><span class="swipe">Swipe →</span></p>
+      <section class="slide s-tease" aria-label="Slide 1" data-nocount>
+        <h1 class="disp h">I don’t<br>like <span class="hollow">AI.</span></h1>
+        <div class="band"><div class="sheet"></div><span>Swipe →</span></div>
+        <p class="sig">Lydie · queen’s pact</p>
+      </section>
+    </div><figcaption><b>01</b> · I don’t like AI</figcaption></figure>
+
+    <!-- 02 · Pourquoi + leurs images -->
+    <figure class="item"><div class="frame">
+      <section class="slide s-arg" aria-label="Slide 2" data-nocount>
+        <h2 class="disp h">It makes<br>everything<br>look the same.<br>It erases<br><span class="pink">difference.</span></h2>
+        <div class="band" aria-hidden="true"><div class="sheet"></div></div>
         <img class="whole chatgpt" src="images/2-chatgpt.webp" alt="Image made with ChatGPT: a horned fencer en garde, rapier extended.">
         <p class="tag t-chatgpt">↑ ChatGPT</p>
         <p class="tag t-gemini">↓ Gemini</p>
         <img class="whole gemini" src="images/1-gemini.webp" alt="Image made with Gemini: a masked fencer lunges with a glowing rapier.">
       </section>
-    </div><figcaption><b>01</b> · I don’t like AI</figcaption></figure>
+    </div><figcaption><b>02</b> · It makes everything look the same</figcaption></figure>
 
-    <!-- 02 · So I built my own + Stable Bibi -->
+    <!-- 03 · So I built my own + Stable Bibi -->
     <figure class="item"><div class="frame">
-      <section class="slide s-mine" aria-label="Slide 2: so I built my own">
+      <section class="slide s-mine" aria-label="Slide 3: so I built my own">
         <h2 class="disp h">So I built<br>my own tool.</h2>
         <p class="why">So it wouldn’t devour me.</p>
         <img class="whole bibi" src="images/3-stable-bibi.webp" alt="Image made with Stable Bibi: a skeleton fencer mid-leap in front of a pink arch.">
         <p class="cap"><b>Stable Bibi ↗</b><span>my personal model</span></p>
       </section>
-    </div><figcaption><b>02</b> · So I built my own</figcaption></figure>
+    </div><figcaption><b>03</b> · So I built my own</figcaption></figure>
 
-    <!-- 03 · Le paradoxe assumé -->
+    <!-- 04 · Le paradoxe assumé -->
     <figure class="item"><div class="frame">
-      <section class="slide s-para" aria-label="Slide 3: yes, it’s still AI">
+      <section class="slide s-para" aria-label="Slide 4: yes, it’s still AI">
         <h2 class="disp h">Yes, it’s<br>still <span class="hollow">AI.</span></h2>
         <p class="me">But retrained on my own work.</p>
         <p class="decide">And I’m the one who decides:</p>
@@ -244,11 +257,11 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
           <li>Art direction</li>
         </ul>
       </section>
-    </div><figcaption><b>03</b> · Le paradoxe assumé</figcaption></figure>
+    </div><figcaption><b>04</b> · Le paradoxe assumé</figcaption></figure>
 
-    <!-- 04 · Le prompt -->
+    <!-- 05 · Le prompt -->
     <figure class="item"><div class="frame">
-      <section class="slide s-prompt" aria-label="Slide 4: the prompt">
+      <section class="slide s-prompt" aria-label="Slide 5: the prompt">
         <h2 class="disp h">The <span class="hollow">prompt.</span></h2>
         <div class="note">
           <div class="sheet"></div>
@@ -257,22 +270,22 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
         <div class="tape" aria-hidden="true"></div>
         <p class="foot">Just one step.</p>
       </section>
-    </div><figcaption><b>04</b> · Le prompt</figcaption></figure>
+    </div><figcaption><b>05</b> · Le prompt</figcaption></figure>
 
-    <!-- 05 · Citation -->
+    <!-- 06 · Citation -->
     <figure class="item"><div class="frame">
-      <section class="slide s-quote" aria-label="Slide 5: quote">
+      <section class="slide s-quote" aria-label="Slide 6: quote">
         <div class="paper"></div>
         <span class="qmark" aria-hidden="true">“</span>
         <p class="pill alt label">My experience</p>
         <blockquote>By retraining my models on my own work, <span class="grey">I lose precision.</span> <span class="pink">But my process takes over.”</span></blockquote>
         <p class="who">Lydie, author of queen’s pact</p>
       </section>
-    </div><figcaption><b>05</b> · Citation</figcaption></figure>
+    </div><figcaption><b>06</b> · Citation</figcaption></figure>
 
-    <!-- 06 · queen's pact (l'image continue sur la slide 7) -->
+    <!-- 07 · queen's pact (l'image continue sur la slide 8) -->
     <figure class="item"><div class="frame">
-      <section class="slide s-pact" aria-label="Slide 6: queen’s pact" data-nopill>
+      <section class="slide s-pact" aria-label="Slide 7: queen’s pact" data-nopill>
         <h2 class="title">queen’s pact</h2>
         <div class="col">
           <div class="blk">
@@ -290,11 +303,11 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
         <img class="span-art" src="images/queens-pact-rideau.png" alt="queen’s pact artwork: a fanged mouth opens in a pink theatre curtain. The image continues on the next slide.">
         <div class="tape" aria-hidden="true"></div>
       </section>
-    </div><figcaption><b>06</b> · queen’s pact</figcaption></figure>
+    </div><figcaption><b>07</b> · queen’s pact</figcaption></figure>
 
-    <!-- 07 · Clôture (suite de l'image de la slide 6) -->
+    <!-- 08 · Clôture (suite de l'image de la slide 7) -->
     <figure class="item"><div class="frame">
-      <section class="slide s-close" aria-label="Slide 7: closing">
+      <section class="slide s-close" aria-label="Slide 8: closing">
         <h2 class="disp h">AI doesn’t erase <span class="pink">the artist.</span></h2>
         <img class="span-art" src="images/queens-pact-rideau.png" alt="">
         <div class="tape" aria-hidden="true"></div>
@@ -306,7 +319,7 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
         </div>
         <p class="sig">Lydie · queen’s pact</p>
       </section>
-    </div><figcaption><b>07</b> · Clôture</figcaption></figure>
+    </div><figcaption><b>08</b> · Clôture</figcaption></figure>
 
   </div>
 
