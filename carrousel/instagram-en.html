@@ -3,20 +3,23 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap">
 <style>
-/* Layout : version Instagram (EN), 8 slides 1080×1350, même collage noir + rose néon que la
-   version LinkedIn. Hook anti-IA en slide 1, paradoxe assumé en slide 2,
-   l'image de la slide 7 continue sur la 8. */
+/* Layout : version Instagram (EN), 7 slides 1080×1350, collage noir + rose néon.
+   1 « I don't like AI » + leurs deux images, 2 « So I built my own » + mon image,
+   3 le paradoxe assumé, 4 le prompt collé comme une note tapée, 5 la citation,
+   6→7 l'image de queen's pact à cheval sur les deux dernières slides. */
 :root {
   --ink: #0A0A0B;
   --ink-2: #151517;
   --line: #24242A;
   --paper: #F6F4F1;
+  --note: #ECE7DF;
   --grey: #9C9BA3;
   --pink: #FF2E93;
   --f-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --f-body: "Inter", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --f-type: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   color-scheme: dark;
 }
@@ -75,91 +78,93 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 .hollow { color: transparent; -webkit-text-stroke: 2px var(--paper); }
 .disp { font-family: var(--f-display); font-weight: 900; line-height: 1; letter-spacing: -.01em; text-wrap: balance; }
 
-.pill { top: 112px; left: 104px; z-index: 6; display: inline-flex; align-items: center; height: 54px; padding: 0 28px;
+.pill { top: 112px; left: 104px; z-index: 6; display: inline-flex; align-items: center; height: 54px;
   border: 2.5px solid #8F8E95; border-radius: 999px; font-size: 22px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; background: var(--ink); }
 .pill.alt { border-color: var(--pink); color: var(--pink); }
 .slide .pill { padding: 0 28px; }
 .count { top: 126px; right: 104px; z-index: 6; font-size: 22px; font-weight: 500; letter-spacing: .06em; color: var(--grey); font-variant-numeric: tabular-nums; }
 
-.crop { overflow: hidden; background: var(--ink-2); }
-.crop img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; }
 .whole { display: block; max-width: none; }
-
-.scratch { overflow: visible; }
+.tag { font-size: 24px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--grey); }
 .paper { background: var(--pink); filter: url(#f-torn); }
 .tape { width: 176px; height: 50px; background: rgba(255, 46, 147, .82); transform: rotate(-6deg); z-index: 7 !important;
   box-shadow: 0 6px 18px rgba(0,0,0,.35); filter: url(#f-tape); }
 .rule { display: block; width: 72px; height: 4px; background: var(--pink); margin-bottom: 26px; }
 
-/* 01 · Hook */
-.s1 .h { top: 190px; left: 104px; width: 870px; font-size: 156px; line-height: .94; letter-spacing: -.02em; }
-.s1 .h .hollow { -webkit-text-stroke-width: 3px; }
-.s1 .tools { top: 520px; left: 104px; font-size: 44px; font-weight: 500; color: var(--grey); }
-.s1 .punch { top: 610px; left: 104px; font-size: 100px; line-height: .97; color: var(--pink); }
-.s1 .strip { bottom: 0; width: 200px; }
-.s1 .sig { left: 104px; top: 1196px; display: grid; gap: 8px; font-size: 28px; font-weight: 600; }
-.s1 .sig .swipe { color: var(--pink); }
+/* 01 · I don't like AI + leurs images */
+.s-hook .h { top: 196px; left: 104px; width: 500px; font-size: 118px; line-height: .95; letter-spacing: -.02em; }
+.s-hook .h .hollow { -webkit-text-stroke-width: 3px; }
+.s-hook .tools { top: 470px; left: 104px; font-size: 40px; font-weight: 500; line-height: 1.25; color: var(--grey); }
+.s-hook .sig { top: 600px; left: 104px; display: grid; gap: 6px; font-size: 26px; font-weight: 600; }
+.s-hook .sig .swipe { color: var(--pink); }
+.s-hook .chatgpt { top: 0; right: 0; height: 690px; width: auto; }
+.s-hook .gemini { left: 0; bottom: 0; width: 1080px; height: auto; }
+.s-hook .t-gemini { top: 700px; left: 104px; }
+.s-hook .t-chatgpt { top: 700px; right: 104px; }
 
-/* 02 · Le paradoxe assumé */
-.s2 .h { top: 190px; left: 104px; width: 870px; font-size: 150px; line-height: .94; letter-spacing: -.02em; }
-.s2 .h .hollow { -webkit-text-stroke-width: 3px; }
-.s2 .me { top: 520px; left: 104px; width: 870px; font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 64px; line-height: 1.05; color: var(--pink); text-wrap: balance; }
-.s2 .decide { top: 710px; left: 104px; font-size: 40px; font-weight: 500; }
-.s2 .stickers { top: 790px; left: 104px; width: 880px; display: flex; flex-wrap: wrap; gap: 20px 16px; }
-.s2 .stickers li { background: var(--pink); color: var(--ink); font-size: 38px; font-weight: 600; letter-spacing: -.005em; padding: 12px 30px 14px; border-radius: 999px; }
-.s2 .stickers li:nth-child(1) { transform: rotate(-2deg); }
-.s2 .stickers li:nth-child(2) { transform: rotate(1.5deg); }
-.s2 .stickers li:nth-child(3) { transform: rotate(-1deg); }
-.s2 .stickers li:nth-child(4) { transform: rotate(2deg); }
-.s2 .stickers li:nth-child(5) { transform: rotate(-1.5deg); }
-.s2 .stickers li:nth-child(6) { transform: rotate(1deg); }
-.s2 .end { top: 1110px; left: 104px; width: 860px; font-family: var(--f-display); font-weight: 700; font-size: 50px; line-height: 1.1; text-wrap: balance; }
+/* 02 · So I built my own + mon image */
+.s-mine .h { top: 196px; left: 104px; width: 900px; font-size: 128px; line-height: .95; letter-spacing: -.02em; color: var(--pink); }
+.s-mine .bibi { right: 0; bottom: 0; height: 880px; width: auto; }
+.s-mine .cap { left: 104px; bottom: 120px; width: 320px; display: grid; gap: 10px; }
+.s-mine .cap b { font-family: var(--f-display); font-weight: 900; font-size: 52px; line-height: 1; }
+.s-mine .cap span { font-size: 30px; line-height: 1.25; color: var(--grey); }
 
-/* 03–05 · Une image, entière */
-.focus .num { top: 188px; left: 104px; display: flex; align-items: baseline; gap: 18px; }
-.focus .num b { font-family: var(--f-display); font-weight: 900; font-size: 150px; line-height: .9; color: var(--pink); }
-.focus .num span { font-family: var(--f-display); font-weight: 900; font-size: 116px; line-height: .9; letter-spacing: -.015em; }
-.focus .lede { top: 372px; left: 104px; width: 872px; font-size: 38px; font-weight: 500; line-height: 1.25; }
-.refrain { font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 50px; line-height: 1.06; color: var(--pink); }
-.s3 .refrain { top: 520px; left: 104px; }
-.s3 .whole { left: 0; bottom: 0; width: 1080px; height: auto; }
-.s4 .whole, .s5 .whole { right: 0; bottom: 0; height: 860px; width: auto; }
-.s4 .refrain, .s5 .refrain { left: 104px; bottom: 120px; }
-.s4 .refrain { width: 390px; }
-.s5 .refrain { width: 350px; font-size: 62px; }
+/* 03 · Le paradoxe assumé */
+.s-para .h { top: 214px; left: 104px; width: 870px; font-size: 150px; line-height: .94; letter-spacing: -.02em; }
+.s-para .h .hollow { -webkit-text-stroke-width: 3px; }
+.s-para .me { top: 580px; left: 104px; width: 870px; font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 66px; line-height: 1.05; color: var(--pink); text-wrap: balance; }
+.s-para .decide { top: 820px; left: 104px; font-size: 42px; font-weight: 500; }
+.s-para .stickers { top: 912px; left: 104px; width: 880px; display: flex; flex-wrap: wrap; gap: 22px 16px; }
+.s-para .stickers li { background: var(--pink); color: var(--ink); font-size: 42px; font-weight: 600; letter-spacing: -.005em; padding: 12px 30px 14px; border-radius: 999px; }
+.s-para .stickers li:nth-child(1) { transform: rotate(-2deg); }
+.s-para .stickers li:nth-child(2) { transform: rotate(1.5deg); }
+.s-para .stickers li:nth-child(3) { transform: rotate(-1deg); }
+.s-para .stickers li:nth-child(4) { transform: rotate(2deg); }
+.s-para .stickers li:nth-child(5) { transform: rotate(-1.5deg); }
+.s-para .stickers li:nth-child(6) { transform: rotate(1deg); }
 
-/* 06 · Citation */
-.s6 .paper { top: 290px; left: 84px; width: 250px; height: 230px; transform: rotate(-3deg); }
-.s6 .qmark { top: 236px; left: 116px; z-index: 3; font-family: var(--f-display); font-weight: 900; font-size: 340px; line-height: 1; color: var(--ink); transform: rotate(-3deg); }
-.s6 .label { top: 380px; left: 380px; }
-.s6 blockquote { top: 610px; left: 104px; width: 880px; font-family: var(--f-display); font-weight: 800; font-size: 68px; line-height: 1.08; text-wrap: balance; }
-.s6 .who { top: 1140px; left: 104px; display: flex; align-items: center; gap: 20px; font-size: 30px; font-weight: 500; }
-.s6 .who::before { content: ""; width: 56px; height: 4px; background: var(--pink); }
+/* 04 · Le prompt, collé comme une note tapée */
+.s-prompt .h { top: 196px; left: 104px; font-size: 124px; letter-spacing: -.02em; }
+.s-prompt .h .hollow { -webkit-text-stroke-width: 3px; }
+.s-prompt .note { top: 400px; left: 84px; width: 912px; transform: rotate(-1.2deg); }
+.s-prompt .note .sheet { position: absolute; inset: 0; background: var(--note); filter: url(#f-torn); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.s-prompt .note p { position: relative; padding: 52px 56px 56px; font-family: var(--f-type); font-weight: 500; font-size: 27px; line-height: 1.45; color: #17161A; }
+.s-prompt .note mark { background: linear-gradient(transparent 12%, rgba(255,46,147,.55) 12%, rgba(255,46,147,.55) 88%, transparent 88%); color: inherit; padding: 0 2px; }
+.s-prompt .tape { left: 452px; top: 372px; }
+.s-prompt .foot { left: 104px; top: 1150px; font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 72px; line-height: 1; color: var(--pink); }
 
-/* 07 + 08 · Image à cheval */
+/* 05 · Citation */
+.s-quote .paper { top: 290px; left: 84px; width: 250px; height: 230px; transform: rotate(-3deg); }
+.s-quote .qmark { top: 236px; left: 116px; z-index: 3; font-family: var(--f-display); font-weight: 900; font-size: 340px; line-height: 1; color: var(--ink); transform: rotate(-3deg); }
+.s-quote .label { top: 380px; left: 380px; }
+.s-quote blockquote { top: 610px; left: 104px; width: 880px; font-family: var(--f-display); font-weight: 800; font-size: 68px; line-height: 1.08; text-wrap: balance; }
+.s-quote .who { top: 1140px; left: 104px; display: flex; align-items: center; gap: 20px; font-size: 30px; font-weight: 500; }
+.s-quote .who::before { content: ""; width: 56px; height: 4px; background: var(--pink); }
+
+/* 06 + 07 · Image à cheval */
 .span-art { top: 390px; width: 588px; height: 820px; display: block; max-width: none; }
-.s7 .span-art { left: 786px; }
-.s8 .span-art { left: -294px; }
-.s7 .tape { left: 992px; top: 368px; }
-.s8 .tape { left: -88px; top: 368px; }
+.s-pact .span-art { left: 786px; }
+.s-close .span-art { left: -294px; }
+.s-pact .tape { left: 992px; top: 368px; }
+.s-close .tape { left: -88px; top: 368px; }
 
-.s7 .title { top: 150px; left: 104px; font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 150px; line-height: 1; letter-spacing: -.02em; color: var(--pink); }
-.s7 .col { top: 400px; left: 104px; width: 630px; display: grid; gap: 34px; }
-.s7 .blk { display: grid; gap: 14px; }
-.s7 .blk + .blk { padding-top: 34px; border-top: 1px solid var(--line); }
-.s7 .big { font-family: var(--f-display); font-weight: 800; font-size: 50px; line-height: 1.06; }
-.s7 .body { font-size: 36px; line-height: 1.26; color: var(--grey); }
-.s7 .body.w { color: var(--paper); font-weight: 500; }
-.s7 .pull { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 46px; line-height: 1.1; color: var(--pink); }
+.s-pact .title { top: 150px; left: 104px; font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 150px; line-height: 1; letter-spacing: -.02em; color: var(--pink); }
+.s-pact .col { top: 400px; left: 104px; width: 630px; display: grid; gap: 34px; }
+.s-pact .blk { display: grid; gap: 14px; }
+.s-pact .blk + .blk { padding-top: 34px; border-top: 1px solid var(--line); }
+.s-pact .big { font-family: var(--f-display); font-weight: 800; font-size: 50px; line-height: 1.06; }
+.s-pact .body { font-size: 36px; line-height: 1.26; color: var(--grey); }
+.s-pact .body.w { color: var(--paper); font-weight: 500; }
+.s-pact .pull { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 46px; line-height: 1.1; color: var(--pink); }
 
-.s8 .h { top: 196px; left: 104px; width: 900px; font-size: 92px; }
-.s8 .col { top: 420px; left: 350px; width: 630px; display: grid; gap: 30px; }
-.s8 .story { font-family: var(--f-display); font-weight: 800; font-size: 54px; line-height: 1.06; }
-.s8 .q { font-size: 36px; font-weight: 500; line-height: 1.28; }
-.s8 .q.strong { font-weight: 600; }
-.s8 .offer { font-size: 32px; line-height: 1.3; color: var(--grey); }
-.s8 .offer .rule { margin-bottom: 20px; }
-.s8 .sig { left: 104px; top: 1250px; font-size: 28px; font-weight: 600; }
+.s-close .h { top: 196px; left: 104px; width: 900px; font-size: 92px; }
+.s-close .col { top: 420px; left: 350px; width: 630px; display: grid; gap: 30px; }
+.s-close .story { font-family: var(--f-display); font-weight: 800; font-size: 54px; line-height: 1.06; }
+.s-close .q { font-size: 36px; font-weight: 500; line-height: 1.28; }
+.s-close .q.strong { font-weight: 600; }
+.s-close .offer { font-size: 32px; line-height: 1.3; color: var(--grey); }
+.s-close .offer .rule { margin-bottom: 20px; }
+.s-close .sig { left: 104px; top: 1250px; font-size: 28px; font-weight: 600; }
 
 /* ───────── Impression / export (1 slide = 1 page) ───────── */
 @page { size: 1080px 1350px; margin: 0; }
@@ -180,10 +185,6 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 
 <svg class="defs" aria-hidden="true" focusable="false">
   <defs>
-    <filter id="f-rough" x="-50%" y="-5%" width="200%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.09 0.02" numOctaves="3" seed="7"/>
-      <feDisplacementMap in="SourceGraphic" scale="10"/>
-    </filter>
     <filter id="f-torn" x="-10%" y="-10%" width="120%" height="120%">
       <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="4" seed="3"/>
       <feDisplacementMap in="SourceGraphic" scale="22"/>
@@ -197,32 +198,38 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 
 <main class="wrap">
   <header class="page-head">
-    <p class="eyebrow">Carrousel Instagram · anglais · 8 slides · 1080 × 1350</p>
+    <p class="eyebrow">Carrousel Instagram · anglais · 7 slides · 1080 × 1350</p>
     <h1>I don’t like <span>AI</span></h1>
-    <p>Version Instagram du carrousel queen’s pact : hook anti-IA en slide 1, paradoxe assumé dès la slide 2. Les trois images sont montrées entières sur les slides 3 à 5 ; l’image de la slide 7 continue sur la slide 8.</p>
+    <p>Slide 1 : leurs images (Gemini, ChatGPT). Slide 2 : la tienne (Stable Bibi). Les trois sont montrées entières. Le prompt a sa propre slide, et l’image de la slide 6 continue sur la slide 7.</p>
   </header>
 
   <div class="deck">
 
-    <!-- 01 · Hook -->
+    <!-- 01 · I don't like AI + Gemini, ChatGPT -->
     <figure class="item"><div class="frame">
-      <section class="slide s1" aria-label="Slide 1: hook" data-nocount>
-        <svg class="scratch" style="left:866px; top:-12px" width="60" height="480" viewBox="0 0 60 480" aria-hidden="true">
-          <path filter="url(#f-rough)" fill="#D9D6D1" d="M30 0 L37 0 L35 90 L41 170 L34 240 L39 300 L33 370 L36 440 L31 480 L27 480 L29 440 L25 370 L31 300 L24 240 L30 170 L24 90 Z"/>
-        </svg>
+      <section class="slide s-hook" aria-label="Slide 1: I don’t like AI" data-nocount>
         <h1 class="disp h">I don’t like <span class="hollow">AI.</span></h1>
-        <p class="tools">ChatGPT images. Gemini images.</p>
-        <p class="disp punch">So I built<br>my own tool.</p>
-        <div class="crop strip" style="left:468px; top:930px"><img src="images/1-gemini.webp" alt="Detail of image 1, Gemini" data-focal="0.625 0.17" data-target="0.5 0.27" data-zoom="1.5" style="object-position:62% 17%"></div>
-        <div class="crop strip" style="left:672px; top:860px"><img src="images/2-chatgpt.webp" alt="Detail of image 2, ChatGPT" data-focal="0.235 0.125" data-target="0.5 0.27" data-zoom="1.5" style="object-position:23% 12%"></div>
-        <div class="crop strip" style="left:876px; top:790px"><img src="images/3-stable-bibi.webp" alt="Detail of image 3, Stable Bibi" data-focal="0.49 0.18" data-target="0.5 0.27" data-zoom="1.5" style="object-position:49% 18%"></div>
+        <p class="tools">ChatGPT images.<br>Gemini images.</p>
         <p class="sig"><span>Lydie · queen’s pact</span><span class="swipe">Swipe →</span></p>
+        <img class="whole chatgpt" src="images/2-chatgpt.webp" alt="Image made with ChatGPT: a horned fencer en garde, rapier extended.">
+        <p class="tag t-chatgpt">↑ ChatGPT</p>
+        <p class="tag t-gemini">↓ Gemini</p>
+        <img class="whole gemini" src="images/1-gemini.webp" alt="Image made with Gemini: a masked fencer lunges with a glowing rapier.">
       </section>
-    </div><figcaption><b>01</b> · Hook</figcaption></figure>
+    </div><figcaption><b>01</b> · I don’t like AI</figcaption></figure>
 
-    <!-- 02 · Le paradoxe assumé (2e hook : Instagram la remontre aux gens qui n'ont pas swipé) -->
+    <!-- 02 · So I built my own + Stable Bibi -->
     <figure class="item"><div class="frame">
-      <section class="slide s2" aria-label="Slide 2: yes, it’s still AI">
+      <section class="slide s-mine" aria-label="Slide 2: so I built my own">
+        <h2 class="disp h">So I built<br>my own.</h2>
+        <img class="whole bibi" src="images/3-stable-bibi.webp" alt="Image made with Stable Bibi: a skeleton fencer mid-leap in front of a pink arch.">
+        <p class="cap"><b>Stable Bibi ↗</b><span>my personal model</span></p>
+      </section>
+    </div><figcaption><b>02</b> · So I built my own</figcaption></figure>
+
+    <!-- 03 · Le paradoxe assumé -->
+    <figure class="item"><div class="frame">
+      <section class="slide s-para" aria-label="Slide 3: yes, it’s still AI">
         <h2 class="disp h">Yes, it’s<br>still <span class="hollow">AI.</span></h2>
         <p class="me">But retrained on my own work.</p>
         <p class="decide">And I’m the one who decides:</p>
@@ -234,54 +241,36 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
           <li>Selection</li>
           <li>Art direction</li>
         </ul>
-        <p class="end"><span class="rule"></span>The prompt is just one step.</p>
       </section>
-    </div><figcaption><b>02</b> · Le paradoxe assumé</figcaption></figure>
+    </div><figcaption><b>03</b> · Le paradoxe assumé</figcaption></figure>
 
-    <!-- 03 · Gemini -->
+    <!-- 04 · Le prompt -->
     <figure class="item"><div class="frame">
-      <section class="slide focus s3" aria-label="Slide 3: image 1, Gemini">
-        <p class="num"><b>1.</b><span>Gemini</span></p>
-        <p class="lede">One image from my exploration.</p>
-        <p class="refrain">Look first.<br>Comment later.</p>
-        <img class="whole" src="images/1-gemini.webp" alt="Image 1, made with Gemini: a masked fencer lunges with a glowing rapier.">
+      <section class="slide s-prompt" aria-label="Slide 4: the prompt">
+        <h2 class="disp h">The <span class="hollow">prompt.</span></h2>
+        <div class="note">
+          <div class="sheet"></div>
+          <p>supernatural ritual mood, dark fantasy minimal background, menacing elegance — <mark>demonpact style</mark> duel-fiend “Cyanide Courtier,” mid-lunge with rapier of frosted glass, blade hollow and brimming with pale-blue poison smoke. Midnight waistcoat is quilted from funeral invitations, wax seals glowing ghost-white at the edges. A half-mask of tarnished silver clings to skeletal cheekbones, weeping cerulean acid that sighs into bubbling puddles. Each thrust implants volatile sigils that detonate in a bloom of bitter-almond mist when the victim strikes back, rewarding reckless aggression with terminal elegance.</p>
+        </div>
+        <div class="tape" aria-hidden="true"></div>
+        <p class="foot">Just one step.</p>
       </section>
-    </div><figcaption><b>03</b> · 1. Gemini</figcaption></figure>
+    </div><figcaption><b>04</b> · Le prompt</figcaption></figure>
 
-    <!-- 04 · ChatGPT -->
+    <!-- 05 · Citation -->
     <figure class="item"><div class="frame">
-      <section class="slide focus s4" aria-label="Slide 4: image 2, ChatGPT">
-        <p class="num"><b>2.</b><span>ChatGPT</span></p>
-        <p class="lede">One image from my exploration.</p>
-        <p class="refrain">Look first.<br>Comment later.</p>
-        <img class="whole" src="images/2-chatgpt.webp" alt="Image 2, made with ChatGPT: a horned fencer en garde, rapier extended.">
-      </section>
-    </div><figcaption><b>04</b> · 2. ChatGPT</figcaption></figure>
-
-    <!-- 05 · Stable Bibi -->
-    <figure class="item"><div class="frame">
-      <section class="slide focus s5" aria-label="Slide 5: image 3, Stable Bibi">
-        <p class="num"><b>3.</b><span>Stable Bibi</span></p>
-        <p class="lede">My personal model, retrained on my own work.</p>
-        <p class="refrain">Not better.<br>Mine.</p>
-        <img class="whole" src="images/3-stable-bibi.webp" alt="Image 3, made with Stable Bibi: a skeleton fencer mid-leap in front of a pink arch.">
-      </section>
-    </div><figcaption><b>05</b> · 3. Stable Bibi</figcaption></figure>
-
-    <!-- 06 · Citation -->
-    <figure class="item"><div class="frame">
-      <section class="slide s6" aria-label="Slide 6: quote">
+      <section class="slide s-quote" aria-label="Slide 5: quote">
         <div class="paper"></div>
         <span class="qmark" aria-hidden="true">“</span>
         <p class="pill alt label">My experience</p>
         <blockquote>By retraining my models on my own work, <span class="grey">I lose precision.</span> <span class="pink">But my process takes over.”</span></blockquote>
         <p class="who">Lydie, author of queen’s pact</p>
       </section>
-    </div><figcaption><b>06</b> · Citation</figcaption></figure>
+    </div><figcaption><b>05</b> · Citation</figcaption></figure>
 
-    <!-- 07 · queen's pact (l'image continue sur la slide 8) -->
+    <!-- 06 · queen's pact (l'image continue sur la slide 7) -->
     <figure class="item"><div class="frame">
-      <section class="slide s7" aria-label="Slide 7: queen’s pact" data-nopill>
+      <section class="slide s-pact" aria-label="Slide 6: queen’s pact" data-nopill>
         <h2 class="title">queen’s pact</h2>
         <div class="col">
           <div class="blk">
@@ -299,11 +288,11 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
         <img class="span-art" src="images/queens-pact-rideau.png" alt="queen’s pact artwork: a fanged mouth opens in a pink theatre curtain. The image continues on the next slide.">
         <div class="tape" aria-hidden="true"></div>
       </section>
-    </div><figcaption><b>07</b> · queen’s pact</figcaption></figure>
+    </div><figcaption><b>06</b> · queen’s pact</figcaption></figure>
 
-    <!-- 08 · Clôture (suite de l'image de la slide 7) -->
+    <!-- 07 · Clôture (suite de l'image de la slide 6) -->
     <figure class="item"><div class="frame">
-      <section class="slide s8" aria-label="Slide 8: closing">
+      <section class="slide s-close" aria-label="Slide 7: closing">
         <h2 class="disp h">AI doesn’t erase <span class="pink">the artist.</span></h2>
         <img class="span-art" src="images/queens-pact-rideau.png" alt="">
         <div class="tape" aria-hidden="true"></div>
@@ -315,7 +304,7 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
         </div>
         <p class="sig">Lydie · queen’s pact</p>
       </section>
-    </div><figcaption><b>08</b> · Clôture</figcaption></figure>
+    </div><figcaption><b>07</b> · Clôture</figcaption></figure>
 
   </div>
 
@@ -358,26 +347,6 @@ When you look at an AI image, do you judge the result, or the choices behind it?
     c.className = 'count'; c.setAttribute('aria-hidden', 'true');
     c.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
     s.appendChild(c);
-  });
-
-  function place(img) {
-    var box = img.parentElement;
-    var W = box.offsetWidth, H = box.offsetHeight, w = img.naturalWidth, h = img.naturalHeight;
-    if (!w || !h || !W || !H) return;
-    var f = (img.dataset.focal || '0.5 0.35').split(' ').map(Number);
-    var t = (img.dataset.target || '0.5 0.3').split(' ').map(Number);
-    var s = Math.max(W / w, H / h,
-      (t[0] * W) / (f[0] * w), ((1 - t[0]) * W) / ((1 - f[0]) * w),
-      (t[1] * H) / (f[1] * h), ((1 - t[1]) * H) / ((1 - f[1]) * h)) * (Number(img.dataset.zoom) || 1);
-    img.style.objectFit = 'fill';
-    img.style.inset = 'auto';
-    img.style.width = (w * s) + 'px';
-    img.style.height = (h * s) + 'px';
-    img.style.left = (t[0] * W - f[0] * w * s) + 'px';
-    img.style.top = (t[1] * H - f[1] * h * s) + 'px';
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('.crop img[data-focal]'), function (img) {
-    if (img.complete) place(img); else img.addEventListener('load', function () { place(img); });
   });
 
   var frames = Array.prototype.slice.call(document.querySelectorAll('.frame'));
