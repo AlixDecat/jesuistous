@@ -172,13 +172,22 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 .s-pact .pull { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 44px; line-height: 1.1; color: var(--pink); }
 
 .s-close .h { top: 196px; left: 104px; width: 900px; font-size: 88px; }
-.s-close .col { top: 420px; left: 350px; width: 630px; display: grid; gap: 28px; }
-.s-close .story { font-family: var(--f-display); font-weight: 800; font-size: 50px; line-height: 1.08; }
+.s-close .col { top: 560px; left: 350px; width: 630px; display: grid; gap: 28px; }
+.s-close .story { font-family: var(--f-display); font-weight: 800; font-size: 66px; line-height: 1.08; }
 .s-close .q { font-size: 34px; font-weight: 500; line-height: 1.3; }
 .s-close .q.strong { font-weight: 600; }
 .s-close .offer { font-size: 30px; line-height: 1.32; color: var(--grey); }
 .s-close .offer .rule { margin-bottom: 20px; }
 .s-close .sig { left: 104px; top: 1250px; font-size: 28px; font-weight: 600; }
+
+/* 09 · Sondage */
+.s-poll .label { top: 230px; left: 104px; }
+.s-poll .h { top: 320px; left: 104px; width: 872px; font-size: 92px; line-height: 1; }
+.s-poll .opts { top: 700px; left: 104px; width: 872px; display: grid; gap: 28px; }
+.s-poll .opts li { display: flex; align-items: center; gap: 30px; height: 150px; padding: 0 40px 0 26px; border: 3px solid var(--paper); border-radius: 999px; font-family: var(--f-display); font-weight: 800; font-size: 60px; line-height: 1; }
+.s-poll .opts b { flex: none; display: grid; place-items: center; width: 96px; height: 96px; border-radius: 50%; background: var(--pink); color: var(--ink); font-family: var(--f-body); font-size: 48px; font-weight: 700; }
+.s-poll .cta { top: 1090px; left: 104px; font-size: 40px; font-weight: 600; color: var(--pink); }
+.s-poll .sig { left: 104px; top: 1250px; font-size: 28px; font-weight: 600; }
 
 /* ───────── Impression / export (1 slide = 1 page) ───────── */
 @page { size: 1080px 1350px; margin: 0; }
@@ -212,9 +221,9 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 
 <main class="wrap">
   <header class="page-head">
-    <p class="eyebrow">Carrousel Instagram · français · 8 slides · 1080 × 1350</p>
+    <p class="eyebrow">Carrousel Instagram · français · 9 slides · 1080 × 1350</p>
     <h1>Je n’aime pas <span>l’IA</span></h1>
-    <p>Slide 1 : « Je n’aime pas l’IA » seul, pour donner envie de swiper. Slide 2 : pourquoi, avec leurs images (Gemini, ChatGPT). Slide 3 : la tienne (Stable Bibi). Le prompt a sa propre slide, et l’image de la slide 7 continue sur la slide 8.</p>
+    <p>Slide 1 : « Je n’aime pas l’IA » seul, pour donner envie de swiper. Slide 2 : pourquoi, avec leurs images (Gemini, ChatGPT). Slide 3 : la tienne (Stable Bibi). Le prompt a sa propre slide, et l’image de la slide 7 continue sur la slide 8. Slide 9 : un sondage A/B, réponse en commentaire.</p>
   </header>
 
   <div class="deck">
@@ -323,13 +332,25 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
         <div class="tape" aria-hidden="true"></div>
         <div class="col">
           <p class="story">Mais le <span class="hollow">prompt</span> ne raconte pas toute son histoire.</p>
-          <p class="q">Quand vous regardez une image générée, jugez-vous seulement <span class="grey">son rendu</span>&nbsp;?</p>
-          <p class="q strong">Ou aussi <span class="pink">les choix, le corpus et l’univers</span> qui l’ont construite&nbsp;?</p>
           <p class="offer"><span class="rule"></span>Je peux détailler mon processus, sans recette miracle.</p>
         </div>
         <p class="sig">Lydie · queen’s pact</p>
       </section>
     </div><figcaption><b>08</b> · Clôture</figcaption></figure>
+
+    <!-- 09 · Sondage -->
+    <figure class="item"><div class="frame">
+      <section class="slide s-poll" aria-label="Slide 9">
+        <p class="pill alt label">Sondage</p>
+        <h2 class="disp h">Face à une image générée, vous regardez d’abord…</h2>
+        <ol class="opts">
+          <li><b>A</b>Le rendu</li>
+          <li><b>B</b>Les choix derrière</li>
+        </ol>
+        <p class="cta">Répondez A ou B en commentaire.</p>
+        <p class="sig">Lydie · queen’s pact</p>
+      </section>
+    </div><figcaption><b>09</b> · Sondage</figcaption></figure>
 
   </div>
 
@@ -347,7 +368,7 @@ Le prompt est en slide 5. Ce n’est qu’une étape. Le reste, ce sont mes choi
 Pas un classement. Pas un tuto de prompt.
 Juste la façon dont je construis queen’s pact, mon univers dark fantasy × K-pop.
 
-Et vous, face à une image générée, vous jugez le rendu ou les choix derrière ?
+Et vous, face à une image générée, vous regardez d’abord le rendu (A) ou les choix derrière (B) ? Sondage en dernière slide, répondez en commentaire.
 
 #queenspact #darkfantasy #artgothique #deckbuilder #roguelite #jeuindé #processuscréatif</pre>
     <div class="row">
