@@ -94,8 +94,8 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 /* 01 · Je n'aime pas l'IA + leurs images */
 .s-hook .h { top: 196px; left: 104px; width: 510px; font-size: 104px; line-height: .96; letter-spacing: -.02em; }
 .s-hook .h .hollow { -webkit-text-stroke-width: 3px; }
-.s-hook .tools { top: 440px; left: 104px; font-size: 40px; font-weight: 500; line-height: 1.25; color: var(--grey); }
-.s-hook .sig { top: 590px; left: 104px; display: grid; gap: 6px; font-size: 26px; font-weight: 600; }
+.s-hook .tools { top: 432px; left: 104px; width: 510px; font-size: 40px; font-weight: 600; line-height: 1.22; }
+.s-hook .sig { top: 598px; left: 104px; display: grid; gap: 6px; font-size: 26px; font-weight: 600; }
 .s-hook .sig .swipe { color: var(--pink); }
 .s-hook .chatgpt { top: 0; right: 0; height: 690px; width: auto; }
 .s-hook .gemini { left: 0; bottom: 0; width: 1080px; height: auto; }
@@ -103,8 +103,9 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 .s-hook .t-chatgpt { top: 700px; right: 104px; }
 
 /* 02 · Alors j'ai construit mon outil + mon image */
-.s-mine .h { top: 196px; left: 104px; width: 900px; font-size: 108px; line-height: .95; letter-spacing: -.02em; color: var(--pink); }
-.s-mine .bibi { right: 0; bottom: 0; height: 790px; width: auto; }
+.s-mine .h { top: 196px; left: 104px; width: 900px; font-size: 100px; line-height: .95; letter-spacing: -.02em; color: var(--pink); }
+.s-mine .bibi { right: 0; bottom: 0; height: 730px; width: auto; }
+.s-mine .why { top: 505px; left: 104px; width: 900px; font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 56px; line-height: 1.05; }
 .s-mine .cap { left: 104px; bottom: 120px; width: 340px; display: grid; gap: 10px; }
 .s-mine .cap b { font-family: var(--f-display); font-weight: 900; font-size: 52px; line-height: 1; }
 .s-mine .cap span { font-size: 30px; line-height: 1.25; color: var(--grey); }
@@ -209,7 +210,7 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
     <figure class="item"><div class="frame">
       <section class="slide s-hook" aria-label="Slide 1 : je n’aime pas l’IA" data-nocount>
         <h1 class="disp h">Je n’aime pas <span class="hollow">l’IA.</span></h1>
-        <p class="tools">Les images de ChatGPT.<br>Celles de Gemini.</p>
+        <p class="tools">Elle normalise.<br>Elle efface<br>les différences.</p>
         <p class="sig"><span>Lydie · queen’s pact</span><span class="swipe">Glisser →</span></p>
         <img class="whole chatgpt" src="images/2-chatgpt.webp" alt="Image générée avec ChatGPT : un épéiste cornu, en garde, rapière tendue.">
         <p class="tag t-chatgpt">↑ ChatGPT</p>
@@ -222,6 +223,7 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
     <figure class="item"><div class="frame">
       <section class="slide s-mine" aria-label="Slide 2 : alors j’ai construit mon outil">
         <h2 class="disp h">Alors j’ai<br>construit<br>mon outil.</h2>
+        <p class="why">Pour ne pas me laisser dévorer.</p>
         <img class="whole bibi" src="images/3-stable-bibi.webp" alt="Image générée avec Stable Bibi : un squelette épéiste en plein saut devant une arche rose.">
         <p class="cap"><b>Stable Bibi ↗</b><span>mon modèle personnel</span></p>
       </section>
@@ -310,11 +312,11 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 
   <section class="caption-box" aria-labelledby="cap-title">
     <h2 id="cap-title">Légende Instagram</h2>
-    <pre id="caption">Je n’aime pas l’IA.
+    <pre id="caption">Je n’aime pas l’IA. Elle normalise, elle efface les différences.
 Et pourtant, ces trois épéistes sortent tous d’une IA.
 
 Ceux de ChatGPT et de Gemini sont soignés. Elles ne sont juste pas les miennes.
-Alors j’ai réentraîné mon propre modèle, Stable Bibi, sur mon travail.
+Alors j’ai réentraîné mon propre modèle, Stable Bibi, sur mon travail. Pour ne pas me laisser dévorer.
 Je perds en précision. C’est la démarche qui prend le relais.
 
 Le prompt est en slide 4. Ce n’est qu’une étape. Le reste, ce sont mes choix : l’intention, le corpus, la sélection, la direction artistique.

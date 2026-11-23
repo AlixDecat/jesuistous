@@ -92,10 +92,10 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 .rule { display: block; width: 72px; height: 4px; background: var(--pink); margin-bottom: 26px; }
 
 /* 01 · I don't like AI + leurs images */
-.s-hook .h { top: 196px; left: 104px; width: 500px; font-size: 118px; line-height: .95; letter-spacing: -.02em; }
+.s-hook .h { top: 196px; left: 104px; width: 500px; font-size: 108px; line-height: .95; letter-spacing: -.02em; }
 .s-hook .h .hollow { -webkit-text-stroke-width: 3px; }
-.s-hook .tools { top: 470px; left: 104px; font-size: 40px; font-weight: 500; line-height: 1.25; color: var(--grey); }
-.s-hook .sig { top: 600px; left: 104px; display: grid; gap: 6px; font-size: 26px; font-weight: 600; }
+.s-hook .tools { top: 432px; left: 104px; width: 510px; font-size: 40px; font-weight: 600; line-height: 1.22; }
+.s-hook .sig { top: 598px; left: 104px; display: grid; gap: 6px; font-size: 26px; font-weight: 600; }
 .s-hook .sig .swipe { color: var(--pink); }
 .s-hook .chatgpt { top: 0; right: 0; height: 690px; width: auto; }
 .s-hook .gemini { left: 0; bottom: 0; width: 1080px; height: auto; }
@@ -103,8 +103,9 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 .s-hook .t-chatgpt { top: 700px; right: 104px; }
 
 /* 02 · So I built my own + mon image */
-.s-mine .h { top: 196px; left: 104px; width: 900px; font-size: 128px; line-height: .95; letter-spacing: -.02em; color: var(--pink); }
-.s-mine .bibi { right: 0; bottom: 0; height: 880px; width: auto; }
+.s-mine .h { top: 196px; left: 104px; width: 900px; font-size: 118px; line-height: .95; letter-spacing: -.02em; color: var(--pink); }
+.s-mine .bibi { right: 0; bottom: 0; height: 790px; width: auto; }
+.s-mine .why { top: 440px; left: 104px; width: 900px; font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 60px; line-height: 1.05; }
 .s-mine .cap { left: 104px; bottom: 120px; width: 320px; display: grid; gap: 10px; }
 .s-mine .cap b { font-family: var(--f-display); font-weight: 900; font-size: 52px; line-height: 1; }
 .s-mine .cap span { font-size: 30px; line-height: 1.25; color: var(--grey); }
@@ -209,7 +210,7 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
     <figure class="item"><div class="frame">
       <section class="slide s-hook" aria-label="Slide 1: I don’t like AI" data-nocount>
         <h1 class="disp h">I don’t like <span class="hollow">AI.</span></h1>
-        <p class="tools">ChatGPT images.<br>Gemini images.</p>
+        <p class="tools">It makes everything<br>look the same.<br>It erases difference.</p>
         <p class="sig"><span>Lydie · queen’s pact</span><span class="swipe">Swipe →</span></p>
         <img class="whole chatgpt" src="images/2-chatgpt.webp" alt="Image made with ChatGPT: a horned fencer en garde, rapier extended.">
         <p class="tag t-chatgpt">↑ ChatGPT</p>
@@ -221,7 +222,8 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
     <!-- 02 · So I built my own + Stable Bibi -->
     <figure class="item"><div class="frame">
       <section class="slide s-mine" aria-label="Slide 2: so I built my own">
-        <h2 class="disp h">So I built<br>my own.</h2>
+        <h2 class="disp h">So I built<br>my own tool.</h2>
+        <p class="why">So it wouldn’t devour me.</p>
         <img class="whole bibi" src="images/3-stable-bibi.webp" alt="Image made with Stable Bibi: a skeleton fencer mid-leap in front of a pink arch.">
         <p class="cap"><b>Stable Bibi ↗</b><span>my personal model</span></p>
       </section>
@@ -310,11 +312,11 @@ body { margin: 0; font-family: var(--f-body); font-size: 15px; line-height: 1.5;
 
   <section class="caption-box" aria-labelledby="cap-title">
     <h2 id="cap-title">Légende Instagram</h2>
-    <pre id="caption">I don’t like AI.
+    <pre id="caption">I don’t like AI. It makes everything look the same. It erases difference.
 And yet, all three of these fencers came out of an AI.
 
 ChatGPT’s and Gemini’s are polished. They’re just not mine.
-So I retrained my own model, Stable Bibi, on my own work.
+So I retrained my own model, Stable Bibi, on my own work. So it wouldn’t devour me.
 I lose precision. My process takes over.
 
 The prompt is on slide 4. It’s only one step. The rest is my choices: intention, corpus, selection, art direction.
